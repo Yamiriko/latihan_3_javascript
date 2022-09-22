@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Latihan 3 Javascript</title>
+</head>
+<body>
+<noscript>Javascript Belum Diaktifkan</noscript>
+<h1>Latihan 3 Javascript</h1>
+<p>Dibawah ini akan dilakukan pemrograman javascript</p>
+<form id="form_input">
+  <p>
+    <label for="n1">Nilai 1</label>
+    <input type="number" min="0" max="99" id="n1" value="0" required autofocus />
+  </p>
+  <p>
+    <label for="n2">Nilai 2</label>
+    <input type="number" min="0" max="99" id="n2" value="0" required />
+  </p>
+  <p>
+    <label for="hsl">Hasilnya</label>
+    <input type="number" min="0" max="99" id="hsl" value="0" />
+  </p>
+  <p>
+    <span id="hitung">(Hasil perhitungan)</span>
+    <br>
+    <span id="hasil">(Hasil Perulangan)</span>
+  </p>
+  <p>
+    <button id="btn_proses" type="button" onclick="proses();">Proses</button>
+  </p>
+</form>
+
+<script>
+function proses() {
+  let n1 = document.getElementById('n1').value;
+  let n2 = document.getElementById('n2').value;
+  let hsl = document.getElementById('hsl').value;
+  let nilai_hasil = parseInt(n1) + parseInt(n2);
+  let cek = (parseInt(hsl) === nilai_hasil) ? true : false;
+  if (cek){
+    let konten = '';
+    for (let index = n1; index < n2; index++) {
+      konten+=index + '<br>';    
+    }
+    console.log(konten);
+    document.getElementById('hitung').innerHTML = cek;
+    document.getElementById('hasil').innerHTML = konten;
+  }
+  else{
+    document.getElementById('hitung').innerHTML = '(Hasil perhitungan)';
+    document.getElementById('hasil').innerHTML = '(Hasil Perulangan)';
+  }
+}
+</script>
+</body>
+</html>
